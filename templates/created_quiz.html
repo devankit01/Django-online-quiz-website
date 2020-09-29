@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Created Quizes</title>
+</head>
+<body>
+<h2>My Created Quizes</h2>
+{% if x %}
+{% for i in x %}
+<a href="single_quiz/{{i.id}}">{{ i.title }}</a><br><br>
+{% endfor %}
+{% else %}
+<p>You have not created any quiz.</p>
+{% endif %}
+</body>
+</html>

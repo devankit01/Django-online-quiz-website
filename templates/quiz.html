@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+<form method="POST" action="/quiz">
+	{% csrf_token %}
+	{% for i in d %}
+	<h3>{{i.question}}</h3>
+	<div id="{{i.id}}">
+	<input type="radio" name="q{{i.id}}" id="o1" value="o1">
+	<label id="o1">{{i.o1}}</label><br>
+
+	<input type="radio" name="q{{i.id}}" id="o2" value="o2">
+	<label id="o2">{{i.o2}}</label><br>
+
+	<input type="radio" name="q{{i.id}}" id="o3" value="o3">
+	<label id="o3">{{i.o3}}</label><br>
+
+	<input type="radio" name="q{{i.id}}" id="o4" value="o4">
+	<label id="o4">{{i.o4}}</label>
+	</div>
+	{% endfor %}
+	<input type="submit" name="Submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Created</title>
+</head>
+{% include "stylebootstrap.html" %} 
+
+	<style type="text/css">
+		nav{
+			position: fixed;
+			box-shadow: 2px 2px 5px grey;
+
+		}
+		body{
+			font-family: sans-serif;
+		}
+		#bg{
+			background-image: linear-gradient(90deg,#B3FFAB, #B3FFAB);
+		}
+		
+		
+		.jumbotron{
+			height: 150px;
+		}
+		p{
+			padding-bottom: 10px!important;
+		}
+		.card{
+	border:none;
+	padding: 20px 30px;
+	margin-bottom: -50px;
+}
+
+	</style>
+<body>
+{% include "nav-login.html" %} 
+<div class="jumbotron">
+<h3>Created Quizzes</h3>
+<p><a href="/">Home/</a>All Quizzes</p>
+</div>
+{% for i in x %}
+<div class="card">
+<h3>{{ i.title }}</h3>
+<a href="quiz_delete/{{i.id}}" style="color: red;">Delete</a>
+<!-- <a href="quiz_view/{{i.id}}">View</a> -->
+<br>
+</div>
+<hr>
+{% endfor %}
+{% include "jsbootstrap.html" %} 
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% include "stylebootstrap.html" %} 
+<style type="text/css">
+	.jumbotron{
+			height: 150px;
+		}
+		nav{
+			position: fixed;
+			box-shadow: 2px 2px 5px grey;
+
+		}
+		body{
+			font-family: sans-serif;
+		}
+		#bg{
+			background-image: linear-gradient(90deg,#B3FFAB, #B3FFAB);
+		}
+		form{
+			padding: 20px 50px;
+		}
+</style>
+
+</head>
+<body>
+{% include "nav-login.html" %} 
+<div class="jumbotron">
+<h3>Quiz Questions</h3>
+
+</div>
+<form action="quiz/{{s_id}}" method="POST">
+	{% csrf_token %}
+
+{% for i in data %}
+<h4>Ques :  {{i.question}}</h4>
+
+	<input type="radio" name="q{{i.id}}" id="o1" value="o1">
+	<label id="o1">{{i.o1}}</label><br>
+
+	<input type="radio" name="q{{i.id}}" id="o2" value="o2">
+	<label id="o2">{{i.o2}}</label><br>
+
+	<input type="radio" name="q{{i.id}}" id="o3" value="o3">
+	<label id="o3">{{i.o3}}</label><br>
+
+	<input type="radio" name="q{{i.id}}" id="o4" value="o4">
+	<label id="o4">{{i.o4}}</label>
+	<br>
+<hr>
+
+	{% endfor %}
+		<input type="submit" name="Submit" class="btn btn-primary">
+</form>
+{% include "jsbootstrap.html" %} 
+
+</body>
+</html>

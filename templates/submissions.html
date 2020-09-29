@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Submissions</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "stylebootstrap.html" %} 
+
+	<style type="text/css">
+		.right{
+			float: right;
+		}
+		.left{
+			float: left
+		}
+		.main{
+			width: 400px;
+			height: auto;
+			padding: 20px 60px;
+		}
+
+		.jumbotron{
+			height: 150px;
+		}
+		nav{
+            position: fixed;
+            box-shadow: 2px 2px 5px grey;
+
+        }
+        body{
+            font-family: sans-serif;
+        }
+        #bg{
+            background-image: linear-gradient(90deg,#B3FFAB, #B3FFAB);
+        }
+	</style>
+</head>
+<body>
+	{% include "nav-login.html" %} 
+<div class="jumbotron">
+<h3>My Submissions</h3>
+</div>
+
+<div class="main">
+<div class="left">
+	<h4>Name</h4>
+    {% for i in data %}
+    	{{i.enrollment}}<br>
+    	<hr>
+{% endfor %}
+</div>
+<div class="right">
+	<h4>Marks</h4>
+
+    {% for i in marks %}
+    	 {{i.marks}} {{'%'}}<br>
+    	 <hr>
+{% endfor %}
+</div>
+</div>
+{% include "jsbootstrap.html" %} 
+
+</body>
+</html>

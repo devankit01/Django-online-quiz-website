@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Answers</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "stylebootstrap.html" %} 
+
+	<style type="text/css">
+		.right{
+			float: right;
+		}
+		.left{
+			float: left
+		}
+		.main{
+			width: 400px;
+			height: auto;
+			padding: 20px 60px;
+		}
+
+		.jumbotron{
+			height: 150px;
+		}
+		nav{
+            position: fixed;
+            box-shadow: 2px 2px 5px grey;
+
+        }
+        body{
+            font-family: sans-serif;
+        }
+        #bg{
+            background-image: linear-gradient(90deg,#B3FFAB, #B3FFAB);
+        }
+	</style>
+</head>
+<body>
+	{% include "nav-login.html" %} 
+<div class="jumbotron">
+<h3>Answers</h3>
+</div>
+
+<div class="main">
+	{% for i in x %}
+	<h5>Ques : {{i.question}}</h5>
+	 <h6 style="color: green;">Ans : {{i.correct}}</h6><br>
+	{%endfor%}
+</div>
+{% include "jsbootstrap.html" %} 
+
+</body>
+</html>

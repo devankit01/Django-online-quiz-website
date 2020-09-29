@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Add Question</title>
+	{% include "stylebootstrap.html" %}
+
+	<style type="text/css">
+		nav{
+			position: fixed;
+			box-shadow: 2px 2px 5px grey;
+
+		}
+		body{
+			font-family: sans-serif;
+		}
+		#bg{
+			background-image: linear-gradient(90deg,#B3FFAB, #B3FFAB);
+		}
+		form{
+			width: 400px;
+			height: 530px;
+			background-color: #fff;
+			padding: 40px 30px;
+			text-align: center;
+			margin: 100px auto;
+
+			box-shadow: 2px 2px 5px grey;
+		}
+		input{
+			margin-top: 15px;
+			margin-bottom: 10px;
+			width: 220px;
+			padding: 3px 4px;
+		}
+		input[type='submit']{
+			background: transparent;
+			border:2px solid #000;
+			width: 140px;
+		}
+		.jumbotron{
+			height: 150px;
+		}
+		p{
+			padding-bottom: 10px!important;
+		}
+		#float_btn{
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			margin-right: 50px;
+			margin-bottom: 50px;
+			background:tomato;
+			color: white;
+			padding:6px 10px;
+		}
+	</style>
+<body>
+{% include "nav-login.html" %}
+<div class="jumbotron">
+<h3>Create Questions</h3>
+<p><a href="/">Home/</a><a href="/create_category">Create Quiz Name/</a>Add Questions</p>
+</div>
+
+<form action="{% url 'add_question' id=id %}" method="POST">
+	{% csrf_token %}
+	Subject Name : {{ title }}
+<br><br>
+	<h3>Your Question</h3>
+	<input type="text" name="ques" placeholder="Question">
+
+		<input type="text" name="ans1" id="o1" placeholder="Option 1">
+
+		<input type="text" name="ans2" id="o2" placeholder="Option 2">
+
+			<input type="text" name="ans3" id="o3" placeholder="Option 3">
+
+		<input type="text" name="ans4" id="o4" placeholder="Option4">
+<br>
+		Correct Option : <select name="correct">
+			<option value="o1">option 1</option>
+			<option value="o2">option 2</option>
+			<option value="o3">option 3</option>
+			<option value="o4">option 4</option>
+
+		</select>
+<br>
+
+
+
+<input type="submit" value="Save Question">
+
+
+</form>
+<a href="{% url 'final_submit' id=d.id %}" id="float_btn">Publish Quiz </a>
+{% include "jsbootstrap.html" %}
+
+</body>
+</html>

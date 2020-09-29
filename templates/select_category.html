@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Category</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+{% include "stylebootstrap.html" %} 
+
+	<style type="text/css">
+		nav{
+			position: fixed;
+			box-shadow: 2px 2px 5px grey;
+
+		}
+		body{
+			font-family: sans-serif;
+		}
+		#bg{
+			background-image: linear-gradient(90deg,#B3FFAB, #B3FFAB);
+		}
+		form{
+			width: 350px;
+			height: 160px;
+			background-color: #61ffda;
+			padding: 20px 30px;
+			text-align: center;
+			margin: 100px auto;
+
+			box-shadow: 2px 2px 5px grey;
+		}
+		input{
+			margin-top: 20px;
+			margin-bottom: 6px;
+			width: 220px;
+			padding: 3px 18px;
+			outline: none;
+		}
+		input[type='text']{
+			border-radius: 2px;
+		}
+		input[type='submit']{
+			background: transparent;
+			border:2px solid #000;
+			width: 100px;
+		}
+		.jumbotron{
+			height: 150px;
+		}
+		p{
+			padding-bottom: 10px!important;
+		}
+
+	</style>
+<body>
+{% include "nav-login.html" %} 
+<div class="jumbotron">
+<h3>Create Name For Quiz</h3>
+<p><a href="/">Home/</a>Create Quiz Name</p>
+</div>
+<form action="/create_category" method="POST">
+{% csrf_token %}
+<input type="text" name="category"/ placeholder="Quiz Name">
+<input type="submit" name="" value="Next">
+
+</form>
+{% include "jsbootstrap.html" %} 
+
+</body>
+</html>

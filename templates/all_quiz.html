@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>All Quiz Sections</title>
+{% include "stylebootstrap.html" %} 
+
+	<style type="text/css">
+		nav{
+			position: fixed;
+			box-shadow: 2px 2px 5px grey;
+
+		}
+		body{
+			font-family: sans-serif;
+		}
+		#bg{
+			background-image: linear-gradient(90deg,#B3FFAB, #B3FFAB);
+		}
+		.jumbotron{
+			height: 150px;
+		}
+		p{
+			padding-bottom: 10px!important;
+		}
+
+.card{
+	border:none;
+	padding: 20px 30px;
+}
+
+	</style>
+
+</head>
+<body>
+{% include "nav-login.html" %} 
+<div class="jumbotron">
+<h3>Enroll or Join Quiz</h3>
+<p><a href="/">Home/</a>Join Quiz</p>
+</div>
+{% for i in x %}
+<div class="card">
+<h3>{{ i.title }}</h3>
+<p>Creator : {{ i.creator.name }}</p>
+<a href="single_quiz/{{i.id}}">Enroll Now</a>
+<br>
+
+</div>
+{% endfor %}
+{% include "jsbootstrap.html" %} 
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "stylebootstrap.html" %} 
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <style type="text/css">
+.chart{
+width: 500px;
+float: right;
+}
+.marksheet{
+
+    float: left;
+}
+.container{
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+.jumbotron{
+            height: 150px;
+        }
+nav{
+            position: fixed;
+            box-shadow: 2px 2px 5px grey;
+
+        }
+        body{
+            font-family: sans-serif;
+        }
+        #bg{
+            background-image: linear-gradient(90deg,#B3FFAB, #B3FFAB);
+        }
+    </style>
+
+
+</head>
+<body>
+{% include "nav-login.html" %} 
+    <div class="jumbotron">
+<h3>Quiz Result</h3>
+
+</div>
+
+<div class="container">
+    <div class="marksheet">
+<h3 align="center" style="color: green;">You have scored<span id="marks"></span> {{marks}}%</h3>
+</div>
+<div class="chart">
+<canvas id="myChart"></canvas>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+	
+ctx = document.getElementById('myChart').getContext('2d');
+var val = document.getElementById('marks');
+console.log(val.value)
+chart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        datasets: [{
+            label: 'Colors',
+            data: [{{marks}} , {{total}}],
+
+            // data: [50 , 50],
+            backgroundColor: [ "#FF4136",  "#2ef279"]
+        }],
+        labels: ['Total','Score']
+    },
+    options: {
+        responsive: true,
+        title:{
+            display: true,
+            text: "Score"
+        }
+    }
+});
+</script>
+{% include "jsbootstrap.html" %} 
+
+</body>
+</html>
